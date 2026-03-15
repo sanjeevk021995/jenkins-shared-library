@@ -5,7 +5,7 @@ def call(imageName, imageTag) {
     sh """
     trivy image \
       --format template \
-      --template @security/html.tpl \
+      --template @resources/html.tpl \
       -o trivy-report.html \
       ${imageName}:${imageTag}
     """
