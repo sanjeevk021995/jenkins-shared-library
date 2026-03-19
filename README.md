@@ -241,7 +241,38 @@ This shared library follows enterprise DevOps practices:
 - Kubernetes-native CI/CD
 - Reusable pipeline stages
 - Modular pipeline architecture
+---
+# 7 Configuring Shared Jenkins Library
 
-# 7 Next Step 
+To use a shared Jenkins library (`devops-shared-lib`) in your pipelines, you must configure it in **Manage Jenkins**.
+
+---
+
+## Steps in Jenkins UI
+
+1. **Open Jenkins Dashboard**
+   - Log in to your Jenkins instance.
+   - Click on **Manage Jenkins**.
+
+2. **Go to Configure System**
+   - In the Manage Jenkins menu, select **Configure System**.
+
+3. **Locate Global Pipeline Libraries**
+   - Scroll down to the section **Global Pipeline Libraries**.
+   - Click **Add** to create a new library entry.
+
+4. **Fill in Library Details**
+   - **Name**: `devops-shared-lib`  
+     (This must match the name used in your Jenkinsfile: `@Library('devops-shared-lib') _`)
+   - **Default Version**: `main` (or whichever branch you want Jenkins to use by default).
+   - **Retrieval Method**: Git.
+   - **Project Repository**: Enter the GitHub repo URL of your shared library.
+   - **Credentials**: Add credentials if the repo is private.
+
+5. **Save Configuration**
+   - Click **Save** at the bottom of the page.
+
+---
+# 8 Next Step 
 
 This  repository will demonstrate how to call this shared library from a Jenkins pipeline - https://github.com/sanjeevk021995/jenkins-shared-library-springboot.git
